@@ -54,7 +54,7 @@ public class PetSurrenderApplication {
   private Integer petTypeId;
 
   @NotNull
-  @Column(name="pet_img_url")
+  @Column(name="pet_image_url")
   private String petImgUrl;
 
   @NotNull

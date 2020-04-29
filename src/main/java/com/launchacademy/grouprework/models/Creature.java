@@ -57,7 +57,4 @@ public class Creature {
   @ManyToOne
   @JoinColumn(name="type_id", nullable=false)
   private CreatureTypes creatureTypes;
-
-  @Column(name="type_id", insertable = false, updatable = false)
-  private Integer typeId;
 }

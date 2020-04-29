@@ -22,8 +22,8 @@ import lombok.Setter;
 @Table(name="creature_types")
 public class CreatureTypes {
   @Id
-  @SequenceGenerator(name="creature_types _generator", sequenceName="creature_types _id_seq", allocationSize = 1)
-  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="creature_types _generator")
+  @SequenceGenerator(name="creature_types_generator", sequenceName="creature_types_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="creature_types_generator")
   @Column(name="id", nullable=false, unique=true)
   private Integer id;
 
@@ -39,6 +39,6 @@ public class CreatureTypes {
   @Column(name="img_url")
   private String imgUrlType ;
 
-//  @OneToMany(mappedBy="creatureTypes")
-//  private List<Creature> creatures = new ArrayList<>();
+  @OneToMany(mappedBy="creatureTypes")
+  private List<Creature> creatures;
 }
