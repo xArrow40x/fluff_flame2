@@ -23,8 +23,8 @@ import lombok.Setter;
 @Table(name="adoptable_creatures")
 public class Creature {
   @Id
-  @SequenceGenerator(name = "adoptable_creatures_generator", sequenceName = "adoptable_creatures_id_seq", allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adoptable_creatures_generator")
+  @SequenceGenerator(name="adoptable_creatures_generator", sequenceName="adoptable_creatures_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="adoptable_creatures_generator")
   @Column(name = "id", nullable = false, unique = true)
   private Integer id;
 
@@ -33,7 +33,7 @@ public class Creature {
   private String name;
 
   @NotNull
-  @Column(name="img_url")
+  @Column(name="creature_img")
   private String imgUrl;
 
   @NotNull
@@ -43,7 +43,7 @@ public class Creature {
 
   @NotNull
   @Column(name="vaccination_status")
-  private String vaccinationStatus;
+  private boolean vaccinationStatus;
 
   @NotNull
   @Column(name="adoption_story")

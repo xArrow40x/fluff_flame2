@@ -22,9 +22,9 @@ import lombok.Setter;
 @Table(name="pet_surrender_applications")
 public class PetSurrenderApplication {
   @Id
-  @SequenceGenerator(name = "pet_surrender_applications_generator", sequenceName = "pet_surrender_applications_id_seq", allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_surrender_applications_generator")
-  @Column(name = "id", nullable = false, unique = true)
+  @SequenceGenerator(name="pet_surrender_applications_generator", sequenceName="pet_surrender_applications_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pet_surrender_applications_generator")
+  @Column(name="id", nullable=false, unique=true)
   private Integer id;
 
   @NotNull
@@ -32,7 +32,7 @@ public class PetSurrenderApplication {
   private String name;
 
   @NotNull
-  @Column(name="phone_number ")
+  @Column(name="phone_number")
   private String phoneNumber;
 
   @NotNull
@@ -41,23 +41,23 @@ public class PetSurrenderApplication {
   private String email;
 
   @NotNull
-  @Column(name="pet_name ")
+  @Column(name="pet_name")
   private String petName;
 
   @NotNull
-  @Min(value = 0)
+  @Min(value=0)
   @Column(name="pet_age")
   private Integer petAge;
 
   @NotNull
-  @Column(name="pet_type_id ")
+  @Column(name="pet_type_id")
   private Integer petTypeId;
 
   @NotNull
-  @Column(name="pet_img_url ")
+  @Column(name="pet_img_url")
   private String petImgUrl;
 
   @NotNull
-  @Column(name="vaccination_status ")
+  @Column(name="vaccination_status")
   private boolean vaccinationStatus;
 }

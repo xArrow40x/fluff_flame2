@@ -22,9 +22,9 @@ import lombok.Setter;
 @Table(name="creature_types")
 public class CreatureTypes {
   @Id
-  @SequenceGenerator(name = "creature_types _generator", sequenceName = "creature_types _id_seq", allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "creature_types _generator")
-  @Column(name = "id", nullable = false, unique = true)
+  @SequenceGenerator(name="creature_types _generator", sequenceName="creature_types _id_seq", allocationSize = 1)
+  @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="creature_types _generator")
+  @Column(name="id", nullable=false, unique=true)
   private Integer id;
 
   @NotNull
