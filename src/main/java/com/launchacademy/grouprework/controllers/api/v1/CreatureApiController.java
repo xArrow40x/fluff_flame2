@@ -1,12 +1,15 @@
 package com.launchacademy.grouprework.controllers.api.v1;
 
 import com.launchacademy.grouprework.models.Creature;
+import com.launchacademy.grouprework.models.PetSurrenderApplication;
 import com.launchacademy.grouprework.repositories.CreatureRepository;
+import com.launchacademy.grouprework.repositories.PetSurrenderApplicationRepository;
 import javax.persistence.PostUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,11 +24,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/creatures")
+@RequestMapping("/api/v1")
 public class CreatureApiController {
 
   @Autowired
   CreatureRepository creatureRepository;
+
+  @Autowired
+  PetSurrenderApplicationRepository petSurrenderApplicationRepository;
 
   private class CreatureNotFoundException extends RuntimeException{};
   @ControllerAdvice
@@ -37,7 +43,7 @@ public class CreatureApiController {
     }
   }
 
-  @GetMapping
+  @GetMapping("/creature_types")
   public Page<Creature> getList(Pageable pageable){
     return (Page<Creature>) creatureRepository.findAll(pageable);
   }
@@ -67,4 +73,11 @@ public class CreatureApiController {
     creatureRepository.deleteById(id);
     return creatureRepository.findAll();
   }
+
+  @PostMapping("/new_creature")
+  public PetSurrenderApplication submitForm(@RequestBody PetSurrenderApplication petSurrenderApplication){
+    return petSurrenderApplicationRepository.save(petSurrenderApplication);
+  }
+
+
 }

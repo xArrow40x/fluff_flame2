@@ -7,11 +7,10 @@ import com.launchacademy.grouprework.repositories.CreatureTypesRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreatureSeeder implements CommandLineRunner {
+public class CreatureSeeder{
   private CreatureRepository creatureRepository;
   private CreatureTypesRepository creatureTypesRepository;
 
@@ -25,8 +24,7 @@ public class CreatureSeeder implements CommandLineRunner {
     this.creatureRepository=creatureRepository;
   }
 
-  @Override
-  public void run(String... args) throws Exception {
+  public void seed() {
     List<CreatureTypes> creatureTypesList = creatureTypesRepository.findAll();
     CreatureTypes NyanCat = creatureTypesList.get(0);
 
