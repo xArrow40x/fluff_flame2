@@ -1,5 +1,6 @@
 package com.launchacademy.grouprework.controllers.api.v1;
 
+import com.launchacademy.grouprework.dtos.PetSurrenderApplicationDto;
 import com.launchacademy.grouprework.models.Creature;
 import com.launchacademy.grouprework.models.CreatureTypes;
 import com.launchacademy.grouprework.models.PetSurrenderApplication;
@@ -88,9 +89,18 @@ public class CreatureApiController {
 //  }
 
   @PostMapping("/new_creature")
-  public PetSurrenderApplication submitForm(@RequestBody PetSurrenderApplication petSurrenderApplication){
-    petSurrenderApplication.setApplicationStatus("pending");
-    return petSurrenderApplicationRepository.save(petSurrenderApplication);
+  public PetSurrenderApplication submitForm(@RequestBody PetSurrenderApplicationDto dto){
+    PetSurrenderApplication petApplication = new PetSurrenderApplication();
+    petApplication.setName(dto.getName());
+    petApplication.setPhoneNumber(dto.getPhoneNumber());
+    petApplication.setEmail(dto.getEmail());
+    petApplication.setPetName(dto.getPetName());
+    petApplication.setPetAge(Integer.parseInt(dto.getPetAge()));
+    petApplication.setPetTypeId(Integer.parseInt(dto.getPetType()));
+    petApplication.setPetImgUrl(dto.getPetImgUrl());
+    petApplication.setVaccinationStatus(dto.getVaccinationStatus());
+    petApplication.setApplicationStatus("pending");
+    return petSurrenderApplicationRepository.save(petApplication);
   }
 
 

@@ -107,10 +107,10 @@ const NewCreatureForm = props => {
       </select>
       <label>Pet Image URL*:</label>
       <input
-        name="petImg"
-        id="petImg"
+        name="petImgUrl"
+        id="petImgUrl"
         type="text"
-        value={formState.petImg}
+        value={formState.petImgUrl}
         onChange={handleChange}
       />
       <label>Vaccination Status*:</label>
