@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -53,11 +54,14 @@ public class PetSurrenderApplication {
   @Column(name="pet_type_id")
   private Integer petTypeId;
 
-  @NotNull
+  @NotBlank
   @Column(name="pet_image_url")
   private String petImgUrl;
 
   @NotNull
   @Column(name="vaccination_status")
   private boolean vaccinationStatus;
+
+  @Column(name="application_status")
+  private String applicationStatus;
 }

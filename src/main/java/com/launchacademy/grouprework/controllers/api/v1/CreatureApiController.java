@@ -89,6 +89,7 @@ public class CreatureApiController {
 
   @PostMapping("/new_creature")
   public PetSurrenderApplication submitForm(@RequestBody PetSurrenderApplication petSurrenderApplication){
+    petSurrenderApplication.setApplicationStatus("pending");
     return petSurrenderApplicationRepository.save(petSurrenderApplication);
   }
 

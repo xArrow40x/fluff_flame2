@@ -10,6 +10,7 @@ const NewCreature = props =>{
 
     const addNewCreature = formPayLoad => {
         event.preventDefault()
+        debugger
         fetch(apiPath, {
             method: "POST",
             body: JSON.stringify(formPayLoad),

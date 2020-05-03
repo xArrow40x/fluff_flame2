@@ -27,6 +27,7 @@ const App = props => {
             <Route exact path="/adopted" component={IndexAdopted} />
             <Route exact path="/adoptions/new" component={NewCreature} />
             <Route exact path="/creatures/:type" component={IndexCreature} />
+            <Route path="/" component={IndexTypes}/>
           </Switch>
         </div>
         <Footer />

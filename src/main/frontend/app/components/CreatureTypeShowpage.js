@@ -14,7 +14,7 @@ const CreatureTypeShowpage = props => {
 
   useEffect(fetchCreature, {});
 
-  if (creature) {
+  if (creature && creature.id) {
   return <CreatureInformation creature={creature} />;
   } else {
   return <NotFound404 />;

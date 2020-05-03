@@ -7,8 +7,8 @@ const NewCreatureForm = props => {
     email: "",
     petName: "",
     petAge: "",
-    petType: "",
-    petImg: "",
+    petTypeId: "",
+    petImgUrl: "",
     vaccinationStatus: ""
   };
 
@@ -83,25 +83,25 @@ const NewCreatureForm = props => {
         <option type="text" value="">
           -
         </option>
-        <option type="text" value="Nyan Cat">
+        <option type="text" value="1">
           Nyan Cat
         </option>
-        <option type="text" value="Dragon">
+        <option type="text" value="2">
           Dragon
         </option>
-        <option type="text" value="Chimera">
+        <option type="text" value="3">
           Chimera
         </option>
-        <option type="text" value="Kelpi">
+        <option type="text" value="4">
           Kelpi
         </option>
-        <option type="text" value="Phoenix">
+        <option type="text" value="5">
           Phoenix
         </option>
-        <option type="text" value="Griffin">
+        <option type="text" value="6">
           Griffin
         </option>
-        <option type="text" value="Merfolk">
+        <option type="text" value="7">
           Merfolk
         </option>
       </select>
