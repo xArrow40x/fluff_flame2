@@ -1,9 +1,13 @@
 package com.launchacademy.grouprework.controllers.api.v1;
 
 import com.launchacademy.grouprework.models.Creature;
+import com.launchacademy.grouprework.models.CreatureTypes;
 import com.launchacademy.grouprework.models.PetSurrenderApplication;
 import com.launchacademy.grouprework.repositories.CreatureRepository;
+import com.launchacademy.grouprework.repositories.CreatureTypesRepository;
 import com.launchacademy.grouprework.repositories.PetSurrenderApplicationRepository;
+import java.util.List;
+import java.util.Optional;
 import javax.persistence.PostUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,6 +35,9 @@ public class CreatureApiController {
   CreatureRepository creatureRepository;
 
   @Autowired
+  CreatureTypesRepository creatureTypesRepository;
+
+  @Autowired
   PetSurrenderApplicationRepository petSurrenderApplicationRepository;
 
   private class CreatureNotFoundException extends RuntimeException{};
@@ -44,35 +51,41 @@ public class CreatureApiController {
   }
 
   @GetMapping("/creature_types")
-  public Page<Creature> getList(Pageable pageable){
-    return (Page<Creature>) creatureRepository.findAll(pageable);
+  public Iterable<CreatureTypes> getList(){
+    return creatureTypesRepository.findAll();
   }
 
-  @GetMapping("/{id}")
-  public Creature getIndividualItem(@PathVariable Integer id){
-    return creatureRepository.findById(id).orElseThrow(() -> new CreatureNotFoundException());
+  @GetMapping("/creature_types/{type}")
+  public List<Creature> getIndividualItem(@PathVariable String type){
+    return creatureRepository.findByType(type);
   }
 
-  @PutMapping("/{id}")
-  public Creature updateCreature(@RequestBody Creature newCreature, @PathVariable Integer id){
-    return creatureRepository.findById(id)
-        .map(Creature -> {
-          Creature.setName(newCreature.getName());
-          Creature.setName(newCreature.getName());
-          Creature.setName(newCreature.getName());
-          Creature.setName(newCreature.getName());
-          Creature.setName(newCreature.getName());
-          Creature.setName(newCreature.getName());
-
-          return creatureRepository.save(Creature);
-        }).orElseThrow(() -> new CreatureNotFoundException());
+  @GetMapping("/creature_types/{type}/{id}")
+  public Creature getIndividualItem(@PathVariable Integer id, @PathVariable String type){
+    return creatureRepository.findByTypeAndId(type, id);
   }
 
-  @DeleteMapping("/{id}")
-  public Iterable<Creature> deleteCreature(@PathVariable Integer id){
-    creatureRepository.deleteById(id);
-    return creatureRepository.findAll();
-  }
+
+//  @PutMapping("/{id}")
+//  public Creature updateCreature(@RequestBody Creature newCreature, @PathVariable Integer id){
+//    return creatureRepository.findById(id)
+//        .map(Creature -> {
+//          Creature.setName(newCreature.getName());
+//          Creature.setName(newCreature.getName());
+//          Creature.setName(newCreature.getName());
+//          Creature.setName(newCreature.getName());
+//          Creature.setName(newCreature.getName());
+//          Creature.setName(newCreature.getName());
+//
+//          return creatureRepository.save(Creature);
+//        }).orElseThrow(() -> new CreatureNotFoundException());
+//  }
+//
+//  @DeleteMapping("/{id}")
+//  public Iterable<Creature> deleteCreature(@PathVariable Integer id){
+//    creatureRepository.deleteById(id);
+//    return creatureRepository.findAll();
+//  }
 
   @PostMapping("/new_creature")
   public PetSurrenderApplication submitForm(@RequestBody PetSurrenderApplication petSurrenderApplication){

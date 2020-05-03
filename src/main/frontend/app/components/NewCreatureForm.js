@@ -89,8 +89,20 @@ const NewCreatureForm = props => {
         <option type="text" value="Dragon">
           Dragon
         </option>
-        <option type="text" value="Unicorn">
-          Unicorn
+        <option type="text" value="Chimera">
+          Chimera
+        </option>
+        <option type="text" value="Kelpi">
+          Kelpi
+        </option>
+        <option type="text" value="Phoenix">
+          Phoenix
+        </option>
+        <option type="text" value="Griffin">
+          Griffin
+        </option>
+        <option type="text" value="Merfolk">
+          Merfolk
         </option>
       </select>
       <label>Pet Image URL*:</label>

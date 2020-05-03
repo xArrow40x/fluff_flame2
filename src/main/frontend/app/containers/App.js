@@ -21,10 +21,11 @@ const App = props => {
         </nav>
         <div className="row medium-10 columns">
           <Switch>
+//            <Redirect exact path="/" to="/creatures" />
+            <Route exact path="/creatures" component={IndexTypes} />
             <Route exact path="/admin" component={AdminMain} />
             <Route exact path="/adopted" component={IndexAdopted} />
-            <Route exact path="/surrender" component={NewCreature} />
-            <Route exact path="/creatures" component={IndexTypes} />
+            <Route exact path="/adoptions/new" component={NewCreature} />
             <Route exact path="/creatures/:type" component={IndexCreature} />
             <Route exact path="/creatures/:type/:id" component={CreatureTypeShowpage} />
           </Switch>

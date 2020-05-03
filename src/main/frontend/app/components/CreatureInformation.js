@@ -12,14 +12,14 @@ const CreatureInformation = props => {
   return (
     <div className="text-center">
       <h2>{props.creature.name}</h2>
-      <img className="img-tweaks" src={props.creature.creature_img} />
+      <img className="img-tweaks" src={props.creature.imgUrl} />
       <p className="lead bold-me">
         {props.creature.name} is {props.creature.age} years old and is{" "}
         {vaccination}.
       </p>
       <p className="lead">
         <span className="bold-me">My Story: </span>
-        {props.creature.adoption_story}
+        {props.creature.adoptionStory}
       </p>
       <AdoptionFormButton creatureId={props.creature.id} />
     </div>

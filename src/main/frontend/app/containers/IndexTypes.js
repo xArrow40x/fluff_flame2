@@ -13,7 +13,7 @@ const IndexTypes = props => {
     <CardType
       key={creature.id}
       type={creature.type}
-      imgUrl={creature.img_url}
+      imgUrl={creature.imgUrlType}
       description={creature.description}
     />
   ));

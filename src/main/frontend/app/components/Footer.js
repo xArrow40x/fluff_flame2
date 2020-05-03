@@ -16,7 +16,7 @@ const Footer = () => {
       </a>
       ,{" "}
       <a href="https://github.com/xArrow40x" target="_blank">
-        Sam Arocho
+        Samuel Arocho
       </a>
     </footer>
   );

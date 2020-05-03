@@ -25,6 +25,8 @@ public class CreatureTypeSeeder implements CommandLineRunner {
     this.creatureTypesRepository=creatureTypesRepository;
   }
 
+  @Autowired CreatureSeeder creatureSeeder;
+
   @Override
   public void run(String... args) throws Exception {
     List<CreatureTypes> creatureTypesList = new ArrayList();
@@ -76,5 +78,7 @@ public class CreatureTypeSeeder implements CommandLineRunner {
         creatureTypesRepository.save(creatureTypes);
       }
     }
+
+    creatureSeeder.seed();
   }
 }

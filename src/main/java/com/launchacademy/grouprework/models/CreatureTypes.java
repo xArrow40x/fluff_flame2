@@ -39,6 +39,6 @@ public class CreatureTypes {
   @Column(name="img_url")
   private String imgUrlType ;
 
-  @OneToMany(mappedBy="creatureTypes")
-  private List<Creature> creatures;
+//  @OneToMany(mappedBy="creatureTypes")
+//  private List<Creature> creatures = new ArrayList<Creature>();
 }
